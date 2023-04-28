@@ -1,0 +1,15 @@
+D:\MIS 221\mis-221-pa-5-rjord1\bin\Debug\net6.0\mis-221-pa-5-rjord1.exe
+D:\MIS 221\mis-221-pa-5-rjord1\bin\Debug\net6.0\mis-221-pa-5-rjord1.deps.json
+D:\MIS 221\mis-221-pa-5-rjord1\bin\Debug\net6.0\mis-221-pa-5-rjord1.runtimeconfig.json
+D:\MIS 221\mis-221-pa-5-rjord1\bin\Debug\net6.0\mis-221-pa-5-rjord1.dll
+D:\MIS 221\mis-221-pa-5-rjord1\bin\Debug\net6.0\mis-221-pa-5-rjord1.pdb
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.csproj.AssemblyReference.cache
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.AssemblyInfoInputs.cache
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.AssemblyInfo.cs
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.csproj.CoreCompileInputs.cache
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.dll
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\refint\mis-221-pa-5-rjord1.dll
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.pdb
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\mis-221-pa-5-rjord1.genruntimeconfig.cache
+D:\MIS 221\mis-221-pa-5-rjord1\obj\Debug\net6.0\ref\mis-221-pa-5-rjord1.dll

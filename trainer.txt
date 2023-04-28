@@ -1,0 +1,11 @@
+0#Roderick#504 come in#openarms@gmail.com#True
+1#Randal#504 back street#ranoffonda@yahoo.com#True
+2#Mister#Open rode 34#missMe@yahoo.com#False
+3#Marice#348 its me avn#backboys@yahoo.com#True
+4#Ricky#ofbrand avn 234#rickyyy@yahoo.com#True
+5#Samson#504 beverly hills#rjice.momo.com#False
+6#savage#556 blv drive#savage@yahoo.com#True
+7#Jeffery#123 sessame st#Jeff.itmee@aol.com#True
+8#Simon#Macorvey Dr#sim.rons@gmail.com#False
+9#Missy#123 dirt Road#miss.me@yahoo.com#True
+0#Mickey#that way avn 123#mickey@disney.com#True
