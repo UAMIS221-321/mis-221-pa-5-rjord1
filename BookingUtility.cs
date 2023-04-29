@@ -83,11 +83,7 @@ namespace mis_221_pa_5_rjord1
             newSession.SetCustomerEmail(Console.ReadLine());
             
             newSession.SetTrainingDate(listings[foundIndex].GetSessionDate());
-
-            int mytrainer = 
-
-
-            newSession.SetTrainingId(trainers[foundIndex].GetTrainerId());
+            newSession.SetTrainingId(listings[foundIndex].GetTrainingId());
             newSession.SetTrainerName(listings[foundIndex].GetTrainerName());
             System.Console.WriteLine("You are now booked for your session!");
             newSession.SetSessionStatus("Booked");

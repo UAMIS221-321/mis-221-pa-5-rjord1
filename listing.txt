@@ -1,8 +1,2 @@
-Randal#12/15/2001#3:30#45#False#True
-Ricky#05/23/2001#4:50#26#False#False
-Rocky#05/21/2002#5:45#34#True#True
-India#10/20/2001#4:45#23#False#True
-Samantha#04/23/2001#3:56#56#False#True
-Roderick#04/21/2022#6:27#67#True#True
-Johny#03/23/2001#4:56#34#False#False
-Ricky#04/28/2023#12:40#54#False#True
+1#Roderick#0#04/25/2001#04:50#65#False#True
+0#Randal#12#02/30/2001#4:50#34#False#True

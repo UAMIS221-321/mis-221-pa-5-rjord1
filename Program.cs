@@ -123,7 +123,7 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
                 Lreport.PrintAllListingsFromFile();
                 System.Console.WriteLine("Current Trianers...");
                 report.PrintAllTrainers();
-                Lutility.AddListing();
+                Lutility.AddListing(trainer);
                 Console.Clear();
                 Lreport.PrintAllListingsFromFile();
                 System.Console.WriteLine("1. Add New Listing\n2. Edit Current Listing\n3. Delete Current Listing");

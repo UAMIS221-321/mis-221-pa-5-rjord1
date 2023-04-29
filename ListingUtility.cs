@@ -35,7 +35,7 @@ namespace mis_221_pa_5_rjord1
             string line = inFile.ReadLine();
             while(line != null){
                 string [] temp = line.Split('#');
-                listings[ListingUtility.GetCount()] = new Listing(temp[0],temp[1],temp[2],temp[3],bool.Parse(temp[4]),bool.Parse(temp[5]));
+                listings[ListingUtility.GetCount()] = new Listing(int.Parse(temp[0]),temp[1],int.Parse(temp[2]),temp[3],temp[4],temp[5],bool.Parse(temp[6]),bool.Parse(temp[7]));
                 ListingUtility.IncCount();
                 line = inFile.ReadLine();
             }
@@ -45,26 +45,45 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        public void AddListing(){
+        public int FindTrainer(string tSearchVal,Trainer [] trainers){
+            for(int i = 0; i < TrainerUtility.GetCount(); i++){
+                if(trainers[i].GetTrainerId() == int.Parse(tSearchVal)){
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void AddListing(Trainer [] trainers){
             System.Console.WriteLine("Please enter the Training ID:");
+            string tSearchVal = Console.ReadLine();
+            int foundIndex = FindTrainer(tSearchVal, trainers);
+            if(foundIndex != -1){
             Listing newListing = new Listing();
-            newListing.SetListingId(int.Parse(Console.ReadLine()));
-            System.Console.WriteLine("Please enter the trainer name:");
-            newListing.SetTrainerName(Console.ReadLine());
+            // System.Console.WriteLine("Enter a new Listing ID");
+            // newListing.SetListingId(int.Parse(Console.ReadLine()));
+            newListing.SetTrainerName(trainers[foundIndex].GetTrainerName());
             System.Console.WriteLine("Please enter the date of the session:");
             newListing.SetSessionDate(Console.ReadLine());
             System.Console.WriteLine("Please enter the Time of the session:");
             newListing.SetSessionTime(Console.ReadLine());
             System.Console.WriteLine("Pleae enter the cost of the session:");
             newListing.SetSessionCost(Console.ReadLine());
+            newListing.SetTrainingId(trainers[foundIndex].GetTrainerId());
             newListing.SessionNotTaken(true);
             newListing.SetActive(true);
             
 
             listings[ListingUtility.GetCount()] = newListing;
             ListingUtility.IncCount();
+            Listing.IncCount();
 
             SaveListing();
+            }
+            else{
+                System.Console.WriteLine("Trainer not found :()");
+            }
         }
 
         private void SaveListing(){

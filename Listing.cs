@@ -8,18 +8,21 @@ namespace mis_221_pa_5_rjord1
         private string sessionTime;
         private string sessionCost;
         private bool sessionTaken;
+        private int trainerId;
         static private int ID;
         private bool active;
+        static private int count;
 
 
         public Listing(){
 
         }
 
-        public Listing(string trainerName, string sessionDate, string sessionTime, string sessionCost, bool sessionTaken, bool active){
+        public Listing(int listingId,string trainerName, int trainerId, string sessionDate, string sessionTime, string sessionCost, bool sessionTaken, bool active){
             this.listingId = ID;
             ID ++;
             this.trainerName = trainerName;
+            this.trainerId = trainerId;
             this.sessionDate = sessionDate;
             this.sessionTime = sessionTime;
             this.sessionCost = sessionCost;
@@ -27,6 +30,21 @@ namespace mis_221_pa_5_rjord1
             this.active = active;
             
         }
+
+        static public void SetCount(int count){
+            Listing.count = count;
+        }
+
+        static public int GetCount(){
+            return count;
+        }
+
+        static public void IncCount(){
+            Listing.count ++;
+        }
+
+
+
 
         public void SetListingId(int listingId){
             
@@ -51,6 +69,14 @@ namespace mis_221_pa_5_rjord1
         }
         public string GetTrainerName(){
             return trainerName;
+        }
+
+        public void SetTrainingId(int trainerID){
+            this.trainerId = trainerID;
+        }
+
+        public int GetTrainingId(){
+            return trainerId;
         }
         public void SetSessionDate(string sessionDate){
             this.sessionDate = sessionDate;
@@ -101,11 +127,11 @@ namespace mis_221_pa_5_rjord1
 
         public override string ToString()
         {
-            return $"- Lising ID: {listingId}\tTrainer Name: {trainerName}\tSession Date: {sessionDate}\tSession Time: {sessionTime}\tSession Cost: ${sessionCost}\tSession Taken: {sessionTaken}";
+            return $"- Lising ID: {listingId}\tTrainer Name: {trainerName}\tTrainer Id: {trainerId}\tSession Date: {sessionDate}\tSession Time: {sessionTime}\tSession Cost: ${sessionCost}\tSession Taken: {sessionTaken}";
         }
 
         public string ToFile(){
-           return $"{trainerName}#{sessionDate}#{sessionTime}#{sessionCost}#{sessionTaken}#{active}";
+           return $"{listingId}#{trainerName}#{trainerId}#{sessionDate}#{sessionTime}#{sessionCost}#{sessionTaken}#{active}";
         }
 
 
