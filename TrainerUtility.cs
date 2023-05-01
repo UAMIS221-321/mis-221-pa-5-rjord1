@@ -16,7 +16,7 @@ namespace mis_221_pa_5_rjord1
             this.trainer = trainer;
         }
 
-        static public void SetCount (int count){
+        static public void SetCount (int count){ // Trianer utility count used to store officail count
             TrainerUtility.count = count;
         }
 
@@ -28,27 +28,7 @@ namespace mis_221_pa_5_rjord1
             TrainerUtility.count ++;
         }
 
-        // public void GetAllTrainers(){
-        //     Trainer.SetCount(0);
-        //     System.Console.WriteLine("Please enter Trainer Name. Enter stop to stop.");
-        //     string userInput = Console.ReadLine();
-        //     while(userInput.ToUpper() != "STOP"){
-        //         trainer[Trainer.GetCount()] = new Trainer();
-        //         trainer[Trainer.GetCount()].SetTrainerName(userInput);
-        //         System.Console.WriteLine("Please enter the Mailing Address.");
-        //         trainer[Trainer.GetCount()].SetTrainerMailing(Console.ReadLine());
-        //         System.Console.WriteLine("Please enter the Email.");
-        //         trainer[Trainer.GetCount()].SetTrainerEmail(Console.ReadLine());
-        //         // trainer[Trainer.GetCount()].SetTrainerId(++)
-        //         Trainer.IncCount();
-
-                
-        //         System.Console.WriteLine("Please enter Trainer Name. Enter stop to stop.");
-        //         userInput = Console.ReadLine();
-        //     }
-        // }
-
-        public void GetAllTrainersFromFile(){
+        public void GetAllTrainersFromFile(){ //Gets all file data and reads it in memory
             StreamReader inFile = new StreamReader("trainer.txt");
 
             TrainerUtility.SetCount(0);
@@ -65,7 +45,7 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        public void AddTrainer(){
+        public void AddTrainer(){ // Allows you to add to current object array
             System.Console.WriteLine("Please enter the trainer name:");
             Trainer newTrainer = new Trainer();
             // newTrainer.SetTrainerId(true);
@@ -82,7 +62,7 @@ namespace mis_221_pa_5_rjord1
             SaveTrainers();
         }
 
-        private void SaveTrainers(){
+        private void SaveTrainers(){ //Uses of the toFile method to store all Edited and Added data to file
             StreamWriter outFile = new StreamWriter("trainer.txt");
 
             for(int i = 0; i < TrainerUtility.GetCount(); i ++){
@@ -92,7 +72,7 @@ namespace mis_221_pa_5_rjord1
             outFile.Close();
         }
 
-        public int Find(string searchVal){
+        public int Find(string searchVal){ //If the correct search Val will return 'i' value
             for(int i = 0; i < TrainerUtility.GetCount(); i++){
                 if(trainer[i].GetTrainerName().ToUpper() == searchVal.ToUpper()){
                     return i;
@@ -102,7 +82,7 @@ namespace mis_221_pa_5_rjord1
             return -1;
         }
 
-        public void UpdateTrainer(){
+        public void UpdateTrainer(){ //Allows you to edit a current array
             System.Console.WriteLine("What is the name of the trainer you want to edit?");
             string searchVal = Console.ReadLine();
             int foundIndex = Find(searchVal);
@@ -123,7 +103,7 @@ namespace mis_221_pa_5_rjord1
             }
         }
 
-        public void DeleteTrainer(){
+        public void DeleteTrainer(){//Allows you to soft delete a current array
             System.Console.WriteLine("What is the name of the trainer you would like to delete?");
             string searchVal = Console.ReadLine();
             int foundIndex = Find(searchVal);

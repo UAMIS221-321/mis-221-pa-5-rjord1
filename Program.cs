@@ -1,5 +1,6 @@
 ﻿using mis_221_pa_5_rjord1;
 
+//Call of the object with a MAXCOUNT of 100
 Trainer[] trainer = new Trainer[100];
 
 Listing[] listings = new Listing[100];
@@ -8,12 +9,7 @@ Booking[] bookings = new Booking[100];
 
 Report[] reports = new Report[100];
 
-// TrainerUtility utility = new TrainerUtility (trainer);
-// TrainerReport report = new TrainerReport (trainer);
-// ListingUtility Lutility = new ListingUtility (listings);
-// ListingReport Lreport = new ListingReport (listings);
-// BookingUtility Butility = new BookingUtility (bookings);
-
+// ........................................Main Start................................................
 int userchoice = MainMenuSelection();
 while(userchoice != 5){
             RouteChoice(userchoice, trainer, listings, bookings, reports);
@@ -23,6 +19,8 @@ while(userchoice != 5){
         if (userchoice == 5){
             ExitApp();
         }
+// .........................................Main End.................................................
+//.......................................Main Menu Methods...........................................
 
 static void MainMenu(){
     System.Console.WriteLine(@"
@@ -64,7 +62,8 @@ static void ExitApp(){
 static void Invalid(){
         System.Console.WriteLine("Wrong entry. Pick again from the menu");
 }
-
+//........................................Main Menu Methods End.....................................
+//.....................................Route Choice Methods Begin...................................
 static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings, Booking [] bookings, Report [] reports){
     TrainerUtility utility = new TrainerUtility (trainer);
     TrainerReport report = new TrainerReport (trainer);
@@ -73,6 +72,7 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
     BookingUtility Butility = new BookingUtility (bookings);
     BookingReport Breport = new BookingReport (listings, bookings);
     ReportUtility Rutility = new ReportUtility(reports);
+//------------------------------------Traier Info Methods-------------------------------------------
     if(userchoice == 1){
         Console.Clear();
         System.Console.WriteLine(@"
@@ -161,6 +161,8 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             System.Console.WriteLine("Back to main menu...");
         }
     }
+//---------------------------------------Trainer Info Methods End---------------------------------------------
+//---------------------------------------Listing Info Methods Begin-------------------------------------------
     if(userchoice == 2){
         Console.Clear();
         System.Console.WriteLine(@"
@@ -279,6 +281,8 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             System.Console.WriteLine("Back to main menu...");
         }
     }
+//------------------------------------------Listing Info Methods End------------------------------------
+//-----------------------------------------Booking Info Methods Begin-----------------------------------
     if(userchoice == 3){
         Console.Clear();
         System.Console.WriteLine(@"
@@ -368,6 +372,8 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             System.Console.WriteLine("Back to main menu...");
         }
     }
+//-----------------------------------------Booking Info Methods End---------------------------------------------
+//----------------------------------------Reports Info Methods Begin--------------------------------------------
     if(userchoice == 4){
         Console.Clear();
         System.Console.WriteLine(@"
@@ -428,49 +434,6 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
     else if (userchoice != 1 && userchoice !=2 && userchoice != 3 && userchoice != 4 && userchoice != 5){
         Invalid();
     }
-
+//----------------------------------------Reports Info Methods End------------------------------------------
 }
-
-
-// BookingReport Breport = new BookingReport (listings, bookings);
-
-// utility.GetAllTrainersFromFile();
-// report.PrintAllTrainers();
-
-// System.Console.WriteLine("Add a new trainer..");
-
-// utility.AddTrainer();
-// report.PrintAllTrainers();
-
-// utility.UpdateTrainer();
-// report.PrintAllTrainers();
-
-// utility.DeleteTrainer();
-// report.PrintAllTrainers();
-
-// Lutility.GetAllListingsFromFile();
-// Lreport.PrintAllListingsFromFile();
-
-// System.Console.WriteLine("Add a new listing...");
-
-// Lutility.AddListing();
-// Lreport.PrintAllListingsFromFile();
-
-// Lutility.UpdateListings();
-// Lreport.PrintAllListingsFromFile();
-
-// Lutility.DeleteListing();
-// Lreport.PrintAllListingsFromFile();
-
-// Breport.PrintAllAvailableSessions();
-
-// Butility.BookASession();
-// Breport.PrintAllBookings();
-
-
-
-// BookingReport.PrintAllAvailableSessions(listings);
-
-// Butility.BookASession(listings, trainer);
-// Butility.GetAllBookingsFromFile(bookings);
-// BookingReport.PrintAllBookings(bookings);
+//.........................................Route Choice Method Ends.........................................

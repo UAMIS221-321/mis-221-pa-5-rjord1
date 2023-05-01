@@ -8,7 +8,7 @@ namespace mis_221_pa_5_rjord1
             this.trainers = trainers;
         }
 
-        public void PrintAllTrainers(){
+        public void PrintAllTrainers(){ //Gets all trianers from file that are active and prints to ToString
             for(int i = 0; i < TrainerUtility.GetCount(); i++){
                 if(trainers[i].GetActive() == true){
                     System.Console.WriteLine(trainers[i].ToString());

@@ -26,13 +26,13 @@ namespace mis_221_pa_5_rjord1
         }
 
 
-        public Booking(){
+        public Booking(){//Constructor with no argument
 
         }
 
-        public Booking(int sessionId, string customerName, string customerEmail, string trainingDate,int trainerID,string Name, string sessionStatus){
+        public Booking(int sessionId, string customerName, string customerEmail, string trainingDate,int trainerID,string Name, string sessionStatus){//constructor with argument
             this.sessionId = ID;
-            ID++;
+            ID++;//Everytime a new Booking is made the ID count is incrimented
             this.customerName = customerName;
             this.customerEmail = customerEmail;
             this.trainingDate = trainingDate;

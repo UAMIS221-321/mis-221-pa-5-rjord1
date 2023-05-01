@@ -7,6 +7,7 @@ namespace mis_221_pa_5_rjord1
 {
     public class Trainer
     {
+        //Instance Variable
         private int trainerId;
         private string trainerName;
         private string trainerMailing;
@@ -17,13 +18,13 @@ namespace mis_221_pa_5_rjord1
         static private int count;
 
 
-        public Trainer(){
+        public Trainer(){ //Constructor with no argument
 
         }
 
-        public Trainer(int trainerId, string trainerName, string trainerMailing, string trainerEmail, bool active){
+        public Trainer(int trainerId, string trainerName, string trainerMailing, string trainerEmail, bool active){ //constructor with argument
             this.trainerId = ID;
-            ID++;
+            ID++;//Everytime a new Trainer is made the ID count is incrimented
             this.trainerName = trainerName;
             this.trainerMailing = trainerMailing;
             this.trainerEmail = trainerEmail;

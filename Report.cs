@@ -19,41 +19,40 @@ namespace mis_221_pa_5_rjord1
             this.revenue = revenue;
         }
 
-        public void SetCustomerEmail(){
+        public void SetCustomerEmail(string customerEmail){
             this.customerEmail = customerEmail;
         }
 
-        public string GetCustomerEmail(string customerEmail){
+        public string GetCustomerEmail(){
             return customerEmail;
         }
-        public void SetCustomerName(){
+        public void SetCustomerName(string customerName){
             this.customerName = customerName;
         }
 
-        public string GetCustomerName(string customerName){
+        public string GetCustomerName(){
             return customerName;
         }
 
-        public void SetTotalNumberOfSessions(){
+        public void SetTotalNumberOfSessions(int totalNumberOfSessions){
             this.totalNumberOfSessions = totalNumberOfSessions;
         }
-        public int GetTotalNumberOfSessions(){
+        public int GetTotalNumberOfSessions(int totalNumberOfSessions){
             return totalNumberOfSessions;
         }
 
-        public void SetRevenue(){
+        public void SetRevenue(int revenue){
             this.revenue = revenue;
         }
         public int GetRevenue(){
             return revenue;
         }
 
-        // public override string ToString()
-        // {
-        //     return 
-        // }
+        public string ToFile(){
+            return $"{customerEmail}#{customerName}#{totalNumberOfSessions}#{revenue}";
+        }
 
-
+        
 
 
     }

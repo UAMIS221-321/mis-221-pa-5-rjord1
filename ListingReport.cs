@@ -13,7 +13,7 @@ namespace mis_221_pa_5_rjord1
             this.listings = listings;
         }
 
-        public void PrintAllListingsFromFile(){
+        public void PrintAllListingsFromFile(){ //Gets all listings from file that are active and prints to ToString
             for(int i = 0; i < ListingUtility.GetCount(); i++){
                 if(listings[i].GetActive() == true){
                     System.Console.WriteLine(listings[i].ToString());

@@ -2,6 +2,7 @@ namespace mis_221_pa_5_rjord1
 {
     public class Listing
     {
+        //Instance Variable
         private int listingId;
         private string trainerName;
         private string sessionDate;
@@ -14,13 +15,13 @@ namespace mis_221_pa_5_rjord1
         static private int count;
 
 
-        public Listing(){
+        public Listing(){//Constructor with no argument
 
         }
 
-        public Listing(int listingId,string trainerName, int trainerId, string sessionDate, string sessionTime, string sessionCost, bool sessionTaken, bool active){
+        public Listing(int listingId,string trainerName, int trainerId, string sessionDate, string sessionTime, string sessionCost, bool sessionTaken, bool active){ //constructor with argument
             this.listingId = ID;
-            ID ++;
+            ID ++;//Everytime a new Listing is made the ID count is incrimented
             this.trainerName = trainerName;
             this.trainerId = trainerId;
             this.sessionDate = sessionDate;
@@ -50,15 +51,6 @@ namespace mis_221_pa_5_rjord1
             
             this.listingId = listingId;
         }
-
-        // public int CreateListingID(){
-        //     Random RandomId = new Random();
-        //     int listingId = RandomId.Next(1,1000);
-        //     return listingId;
-        // }
-        // // public int GetListingId(){
-        // //     return listingId;
-        // // }
 
         public int GetListingId(){
         

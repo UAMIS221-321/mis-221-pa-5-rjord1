@@ -17,7 +17,7 @@ namespace mis_221_pa_5_rjord1
             this.bookings = bookings;
         }
 
-        static public void SetCount (int count){
+        static public void SetCount (int count){ // Booking utility count used to store officail count
             BookingUtility.count = count;
         }
 
@@ -29,7 +29,7 @@ namespace mis_221_pa_5_rjord1
             BookingUtility.count ++;
         }
 
-        public void GetAllBookingsFromFile(Booking [] bookings){
+        public void GetAllBookingsFromFile(Booking [] bookings){ //Gets all file data and reads it in memory
             StreamReader inFile = new StreamReader("transactions.txt");
 
             // BookingUtility.SetCount(0);
@@ -48,7 +48,7 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        private void SaveBooking(Booking [] bookings){
+        private void SaveBooking(Booking [] bookings){ //Uses of the toFile method to store all Edited and Added data to file
             StreamWriter outFile = new StreamWriter("transactions.txt");
 
             for(int i = 0; i < Booking.GetCount(); i ++){
@@ -58,7 +58,7 @@ namespace mis_221_pa_5_rjord1
             outFile.Close();
         }
 
-        public int Find(string searchVal,Listing [] listings){
+        public int Find(string searchVal,Listing [] listings){ //Specifically pulls from the listing array
             for(int i = 0; i < ListingUtility.GetCount(); i++){
                 if(listings[i].GetListingId() == int.Parse(searchVal)){
                     return i;
@@ -68,7 +68,7 @@ namespace mis_221_pa_5_rjord1
             return -1;
         }
 
-        public int FindBooking(string searchVal){
+        public int FindBooking(string searchVal){ //If the correct search Val will return 'i' value
             for(int i = 0; i < BookingUtility.GetCount(); i++){
                 if(bookings[i].GetSessionId() == int.Parse(searchVal)){
                     return i;
@@ -78,7 +78,7 @@ namespace mis_221_pa_5_rjord1
             return -1;
         }
 
-        public void BookASession(Listing [] listings, Trainer [] trainers){
+        public void BookASession(Listing [] listings, Trainer [] trainers){ // Allows you to add to current object array
             
             System.Console.WriteLine("Please enter the Listing ID:");
             string searchVal = Console.ReadLine();
@@ -111,7 +111,7 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        public void ChangeBookingStatus(){
+        public void ChangeBookingStatus(){ //Allows you to edit a current array
             System.Console.WriteLine("Enter the session ID that you would like to edit:");
             string searchVal = Console.ReadLine();
             int foundIndex = FindBooking(searchVal);

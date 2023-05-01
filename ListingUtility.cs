@@ -16,7 +16,7 @@ namespace mis_221_pa_5_rjord1
             this.listings = listings;
         }
 
-        static public void SetCount (int count){
+        static public void SetCount (int count){ // Listing utility count used to store officail count
             ListingUtility.count = count;
         }
 
@@ -28,7 +28,7 @@ namespace mis_221_pa_5_rjord1
             ListingUtility.count ++;
         }
 
-        public void GetAllListingsFromFile(){
+        public void GetAllListingsFromFile(){ //Gets all file data and reads it in memory
             StreamReader inFile = new StreamReader("listing.txt");
 
             ListingUtility.SetCount(0);
@@ -45,7 +45,7 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        public int FindTrainer(string tSearchVal,Trainer [] trainers){
+        public int FindTrainer(string tSearchVal,Trainer [] trainers){ //Specifically pulls from the trainer array
             for(int i = 0; i < TrainerUtility.GetCount(); i++){
                 if(trainers[i].GetTrainerId() == int.Parse(tSearchVal)){
                     return i;
@@ -55,14 +55,12 @@ namespace mis_221_pa_5_rjord1
             return -1;
         }
 
-        public void AddListing(Trainer [] trainers){
+        public void AddListing(Trainer [] trainers){ // Allows you to add to current object array
             System.Console.WriteLine("Please enter the Trainer ID:");
             string tSearchVal = Console.ReadLine();
             int foundIndex = FindTrainer(tSearchVal, trainers);
             if(foundIndex != -1){
             Listing newListing = new Listing();
-            // System.Console.WriteLine("Enter a new Listing ID");
-            // newListing.SetListingId(int.Parse(Console.ReadLine()));
             newListing.SetTrainerName(trainers[foundIndex].GetTrainerName());
             System.Console.WriteLine("Please enter the date of the session:");
             newListing.SetSessionDate(Console.ReadLine());
@@ -87,7 +85,7 @@ namespace mis_221_pa_5_rjord1
             }
         }
 
-        private void SaveListing(){
+        private void SaveListing(){ //Uses of the toFile method to store all Edited and Added data to file
             StreamWriter outFile = new StreamWriter("listing.txt");
 
             for(int i = 0; i < ListingUtility.GetCount(); i ++){
@@ -97,7 +95,7 @@ namespace mis_221_pa_5_rjord1
             outFile.Close();
         }
 
-        public int Find(string searchVal){
+        public int Find(string searchVal){ //If the correct search Val will return 'i' value
             for(int i = 0; i < ListingUtility.GetCount(); i++){
                 if(listings[i].GetListingId() == int.Parse(searchVal)){
                     return i;
@@ -107,15 +105,12 @@ namespace mis_221_pa_5_rjord1
             return -1;
         }
 
-         public void UpdateListings(){
+         public void UpdateListings(){ //Allows you to edit a current array
             System.Console.WriteLine("What is the Id of the listing you want to edit?");
             string searchVal = Console.ReadLine();
             int foundIndex = Find(searchVal);
 
             if(foundIndex != -1){
-            // System.Console.WriteLine("Please enter the trainer name:");
-            // listings[foundIndex].SetTrainerName(Console.ReadLine());
-            
             System.Console.WriteLine("Enter 1 if the session is taken. Eneter 2 if the session is not taken.");
             string userchoice = Console.ReadLine();
             if(userchoice == "1"){
@@ -142,7 +137,7 @@ namespace mis_221_pa_5_rjord1
             }
         }
 
-        public void DeleteListing(){
+        public void DeleteListing(){ //Allows you to soft delete a current array
             System.Console.WriteLine("What is the ID of the listing you would like to delete?");
             string searchVal = Console.ReadLine();
             int foundIndex = Find(searchVal);
