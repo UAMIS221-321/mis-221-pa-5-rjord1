@@ -36,7 +36,7 @@ namespace mis_221_pa_5_rjord1
 
         public int FindCustomer(string searchVal){
             for(int i = 0; i < BookingUtility.GetCount(); i++){
-                if(bookings[i].GetCustomerEmail().ToUpper() == searchVal.ToUpper() ){
+                if(bookings[i].GetCustomerEmail() == searchVal ){
                     return i;
                 }
             }

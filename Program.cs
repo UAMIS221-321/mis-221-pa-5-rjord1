@@ -25,12 +25,22 @@ while(userchoice != 5){
         }
 
 static void MainMenu(){
-    System.Console.WriteLine("Welcome to Train Like a Champian Trainer Booking System!");
+    System.Console.WriteLine(@"
+  _______        _         _      _ _                      _____ _                           _             
+ |__   __|      (_)       | |    (_) |            /\      / ____| |                         (_)            
+    | |_ __ __ _ _ _ __   | |     _| | _____     /  \    | |    | |__   __ _ _ __ ___  _ __  _  __ _ _ __  
+    | | '__/ _` | | '_ \  | |    | | |/ / _ \   / /\ \   | |    | '_ \ / _` | '_ ` _ \| '_ \| |/ _` | '_ \ 
+    | | | | (_| | | | | | | |____| |   <  __/  / ____ \  | |____| | | | (_| | | | | | | |_) | | (_| | | | |
+    |_|_|  \__,_|_|_| |_| |______|_|_|\_\___| /_/    \_\  \_____|_| |_|\__,_|_| |_| |_| .__/|_|\__,_|_| |_|
+                                                                                      | |                  
+                                                                                      |_|                  
+");
     System.Console.WriteLine("Select from the menu: \n1. Manage Trainer Data\n2. Manage Listing Data\n3. Manage Customer Booking Data\n4. Run System Reports\n5. Exit The Application");
 
 }
 
 static int MainMenuSelection(){
+    Console.Clear();
     MainMenu();
     int userchoice = int.Parse(Console.ReadLine());
     if (ValidMenuChoice(userchoice)){
@@ -65,7 +75,12 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
     ReportUtility Rutility = new ReportUtility(reports);
     if(userchoice == 1){
         Console.Clear();
-        System.Console.WriteLine("Here you have Access to all trainer date.\nSelect from the menu below:");
+        System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
         utility.GetAllTrainersFromFile();
         report.PrintAllTrainers();
         System.Console.WriteLine("1. Add New Trainer\n2. Edit Current Trainer\n3. Delete Trainer");
@@ -74,9 +89,21 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
         while(userSelection == 1 || userSelection == 2 || userSelection == 3 && userSelection != 1){
             if(userSelection == 1){
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
                 report.PrintAllTrainers();
                 utility.AddTrainer();
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
                 report.PrintAllTrainers(); 
                 System.Console.WriteLine("1. Add New Trainer\n2. Edit Current Trainer\n3. Delete Trainer");
                 System.Console.WriteLine("Enter -1 to return to main menu");
@@ -85,9 +112,21 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             }
             if(userSelection == 2){
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
                 report.PrintAllTrainers();
                 utility.UpdateTrainer();
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
                 report.PrintAllTrainers();
                 System.Console.WriteLine("1. Add New Trainer\n2. Edit Current Trainer\n3. Delete Trainer");
                 System.Console.WriteLine("Enter -1 to return to main menu");
@@ -96,9 +135,21 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             }
             if(userSelection == 3){
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
                 report.PrintAllTrainers();
                 utility.DeleteTrainer();
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ____  ____   __   __  __ _  ____  ____    __  __ _  ____  __  ____  _  _   __  ____  __  __   __ _ 
+(_  _)(  _ \ / _\ (  )(  ( \(  __)(  _ \  (  )(  ( \(  __)/  \(  _ \( \/ ) / _\(_  _)(  )/  \ (  ( \
+  )(   )   //    \ )( /    / ) _)  )   /   )( /    / ) _)(  O ))   // \/ \/    \ )(   )((  O )/    /
+ (__) (__\_)\_/\_/(__)\_)__)(____)(__\_)  (__)\_)__)(__)  \__/(__\_)\_)(_/\_/\_/(__) (__)\__/ \_)__)
+");
                 report.PrintAllTrainers();
                 System.Console.WriteLine("1. Add New Trainer\n2. Edit Current Trainer\n3. Delete Trainer");
                 System.Console.WriteLine("Enter -1 to return to main menu");
@@ -112,7 +163,16 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
     }
     if(userchoice == 2){
         Console.Clear();
-        System.Console.WriteLine("Here you have Access to all listing date.\nSelect from the menu below:");
+        System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
         Lutility.GetAllListingsFromFile();
         utility.GetAllTrainersFromFile();
         Lreport.PrintAllListingsFromFile();
@@ -122,12 +182,32 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
         while(userSelection == 1 || userSelection == 2 || userSelection == 3 && userSelection != 1){
             if(userSelection == 1){
                 Console.Clear();
+                System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
                 System.Console.WriteLine("Current Listing...");
                 Lreport.PrintAllListingsFromFile();
                 System.Console.WriteLine("Current Trianers...");
                 report.PrintAllTrainers();
                 Lutility.AddListing(trainer);
                 Console.Clear();
+                System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
                 Lreport.PrintAllListingsFromFile();
                 System.Console.WriteLine("1. Add New Listing\n2. Edit Current Listing\n3. Delete Current Listing");
                 System.Console.WriteLine("Enter -1 to return to main menu");
@@ -135,9 +215,29 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             }
             if(userSelection == 2){
                 Console.Clear();
+                System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
                 Lreport.PrintAllListingsFromFile();
                 Lutility.UpdateListings();
                 Console.Clear();
+                System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
                 Lreport.PrintAllListingsFromFile();
                 System.Console.WriteLine("1. Add New Listing\n2. Edit Current Listing\n3. Delete Current Listing");
                 System.Console.WriteLine("Enter -1 to return to main menu");
@@ -145,9 +245,29 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             }
             if(userSelection == 3){
                 Console.Clear();
+                System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
                 Lreport.PrintAllListingsFromFile();
                 Lutility.DeleteListing();
                 Console.Clear();
+                System.Console.WriteLine(@"
+  ___    __       __   __                 ___        ___                           __   __             
+ |   |  |__.-----|  |_|__.-----.-----.   |   .-----.'  _.-----.----.--------.---.-|  |_|__.-----.-----.
+ |.  |  |  |__ --|   _|  |     |  _  |   |.  |     |   _|  _  |   _|        |  _  |   _|  |  _  |     |
+ |.  |__|__|_____|____|__|__|__|___  |   |.  |__|__|__| |_____|__| |__|__|__|___._|____|__|_____|__|__|
+ |:  1   |                     |_____|   |:  |                                                         
+ |::.. . |                               |::.|                                                         
+ `-------'                               `---'                                                         
+                                                                                                       
+");
                 Lreport.PrintAllListingsFromFile();
                 System.Console.WriteLine("1. Add New Listing\n2. Edit Current Listing\n3. Delete Current Listing");
                 System.Console.WriteLine("Enter -1 to return to main menu");
@@ -160,7 +280,15 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
         }
     }
     if(userchoice == 3){
-        System.Console.WriteLine("Here you have Access to all booking date.\nSelect from the menu below:");
+        Console.Clear();
+        System.Console.WriteLine(@"
+    ____              __   _                ____      ____                           __  _           
+   / __ )____  ____  / /__(_)___  ____ _   /  _/___  / __/___  _________ ___  ____ _/ /_(_)___  ____ 
+  / __  / __ \/ __ \/ //_/ / __ \/ __ `/   / // __ \/ /_/ __ \/ ___/ __ `__ \/ __ `/ __/ / __ \/ __ \
+ / /_/ / /_/ / /_/ / ,< / / / / / /_/ /  _/ // / / / __/ /_/ / /  / / / / / / /_/ / /_/ / /_/ / / / /
+/_____/\____/\____/_/|_/_/_/ /_/\__, /  /___/_/ /_/_/  \____/_/  /_/ /_/ /_/\__,_/\__/_/\____/_/ /_/ 
+                               /____/                                                                
+");
         Lutility.GetAllListingsFromFile();
         Butility.GetAllBookingsFromFile(bookings);
         System.Console.WriteLine("Sessions Booked....");
@@ -170,15 +298,39 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
         while(userSelection == 1 || userSelection == 2 || userSelection == 3 && userSelection != 1){
             if(userSelection == 1){
                 Console.Clear();
+                System.Console.WriteLine(@"
+    ____              __   _                ____      ____                           __  _           
+   / __ )____  ____  / /__(_)___  ____ _   /  _/___  / __/___  _________ ___  ____ _/ /_(_)___  ____ 
+  / __  / __ \/ __ \/ //_/ / __ \/ __ `/   / // __ \/ /_/ __ \/ ___/ __ `__ \/ __ `/ __/ / __ \/ __ \
+ / /_/ / /_/ / /_/ / ,< / / / / / /_/ /  _/ // / / / __/ /_/ / /  / / / / / / /_/ / /_/ / /_/ / / / /
+/_____/\____/\____/_/|_/_/_/ /_/\__, /  /___/_/ /_/_/  \____/_/  /_/ /_/ /_/\__,_/\__/_/\____/_/ /_/ 
+                               /____/                                                                
+");
                 BookingReport.PrintAllAvailableSessions(listings);
                 System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
                 userSelection = int.Parse(Console.ReadLine());
             }
             if(userSelection == 2){
                 Console.Clear();
+                System.Console.WriteLine(@"
+    ____              __   _                ____      ____                           __  _           
+   / __ )____  ____  / /__(_)___  ____ _   /  _/___  / __/___  _________ ___  ____ _/ /_(_)___  ____ 
+  / __  / __ \/ __ \/ //_/ / __ \/ __ `/   / // __ \/ /_/ __ \/ ___/ __ `__ \/ __ `/ __/ / __ \/ __ \
+ / /_/ / /_/ / /_/ / ,< / / / / / /_/ /  _/ // / / / __/ /_/ / /  / / / / / / /_/ / /_/ / /_/ / / / /
+/_____/\____/\____/_/|_/_/_/ /_/\__, /  /___/_/ /_/_/  \____/_/  /_/ /_/ /_/\__,_/\__/_/\____/_/ /_/ 
+                               /____/                                                                
+");
                 BookingReport.PrintAllAvailableSessions(listings);
                 Butility.BookASession(listings, trainer);
                 Console.Clear();
+                System.Console.WriteLine(@"
+    ____              __   _                ____      ____                           __  _           
+   / __ )____  ____  / /__(_)___  ____ _   /  _/___  / __/___  _________ ___  ____ _/ /_(_)___  ____ 
+  / __  / __ \/ __ \/ //_/ / __ \/ __ `/   / // __ \/ /_/ __ \/ ___/ __ `__ \/ __ `/ __/ / __ \/ __ \
+ / /_/ / /_/ / /_/ / ,< / / / / / /_/ /  _/ // / / / __/ /_/ / /  / / / / / / /_/ / /_/ / /_/ / / / /
+/_____/\____/\____/_/|_/_/_/ /_/\__, /  /___/_/ /_/_/  \____/_/  /_/ /_/ /_/\__,_/\__/_/\____/_/ /_/ 
+                               /____/                                                                
+");
                 System.Console.WriteLine("Sessions Booked....");
                 BookingReport.PrintAllBookings(bookings);
                 System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
@@ -186,9 +338,25 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
             }
             if(userSelection == 3){
                 Console.Clear();
+                System.Console.WriteLine(@"
+    ____              __   _                ____      ____                           __  _           
+   / __ )____  ____  / /__(_)___  ____ _   /  _/___  / __/___  _________ ___  ____ _/ /_(_)___  ____ 
+  / __  / __ \/ __ \/ //_/ / __ \/ __ `/   / // __ \/ /_/ __ \/ ___/ __ `__ \/ __ `/ __/ / __ \/ __ \
+ / /_/ / /_/ / /_/ / ,< / / / / / /_/ /  _/ // / / / __/ /_/ / /  / / / / / / /_/ / /_/ / /_/ / / / /
+/_____/\____/\____/_/|_/_/_/ /_/\__, /  /___/_/ /_/_/  \____/_/  /_/ /_/ /_/\__,_/\__/_/\____/_/ /_/ 
+                               /____/                                                                
+");
                 BookingReport.PrintAllBookings(bookings);
                 Butility.ChangeBookingStatus();
                 Console.Clear();
+                System.Console.WriteLine(@"
+    ____              __   _                ____      ____                           __  _           
+   / __ )____  ____  / /__(_)___  ____ _   /  _/___  / __/___  _________ ___  ____ _/ /_(_)___  ____ 
+  / __  / __ \/ __ \/ //_/ / __ \/ __ `/   / // __ \/ /_/ __ \/ ___/ __ `__ \/ __ `/ __/ / __ \/ __ \
+ / /_/ / /_/ / /_/ / ,< / / / / / /_/ /  _/ // / / / __/ /_/ / /  / / / / / / /_/ / /_/ / /_/ / / / /
+/_____/\____/\____/_/|_/_/_/ /_/\__, /  /___/_/ /_/_/  \____/_/  /_/ /_/ /_/\__,_/\__/_/\____/_/ /_/ 
+                               /____/                                                                
+");
                 System.Console.WriteLine("Session Status Changed...");
                 BookingReport.PrintAllBookings(bookings);
                 System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
@@ -201,6 +369,21 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
         }
     }
     if(userchoice == 4){
+        Console.Clear();
+        System.Console.WriteLine(@"
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░▌          
+▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌
+▐░█▀▀▀▀█░█▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌▐░█▀▀▀▀█░█▀▀      ▐░▌      ▀▀▀▀▀▀▀▀▀█░▌
+▐░▌     ▐░▌  ▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌     ▐░▌       ▐░▌               ▐░▌
+▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌          ▐░█▄▄▄▄▄▄▄█░▌▐░▌      ▐░▌      ▐░▌      ▄▄▄▄▄▄▄▄▄█░▌
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░▌       ▐░▌     ▐░▌     ▐░░░░░░░░░░░▌
+ ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀ 
+                                                                                           
+");
         Lutility.GetAllListingsFromFile();
         Butility.GetAllBookingsFromFile(bookings);
         System.Console.WriteLine("Which Report would you like to view? Select from the menu below:");
@@ -208,18 +391,33 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
         System.Console.WriteLine("Enter -1 to return to main menu");
         int userSelection = int.Parse(Console.ReadLine());
         while(userSelection == 1 || userSelection == 2 || userSelection == 3 && userSelection != 1){
-            if(userchoice == 1){
+            if(userSelection == 1){
                 Console.Clear();
+                System.Console.WriteLine(@"
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     ▐░▌          
+▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌
+▐░█▀▀▀▀█░█▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌▐░█▀▀▀▀█░█▀▀      ▐░▌      ▀▀▀▀▀▀▀▀▀█░▌
+▐░▌     ▐░▌  ▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌     ▐░▌       ▐░▌               ▐░▌
+▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌          ▐░█▄▄▄▄▄▄▄█░▌▐░▌      ▐░▌      ▐░▌      ▄▄▄▄▄▄▄▄▄█░▌
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░▌       ▐░▌     ▐░▌     ▐░░░░░░░░░░░▌
+ ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀ 
+                                                                                           
+");
+                System.Console.WriteLine("Current Sessions...");
                 BookingReport.PrintAllBookings(bookings);
                 Rutility.IndividualCustomerReport();
                 System.Console.WriteLine("1. Individual Customer Report\n2. Historical Customer Report\n3. Historical Revenue Report");
                 System.Console.WriteLine("Enter -1 to return to main menu");
                 userSelection = int.Parse(Console.ReadLine());
             }
-            if(userchoice == 2){
+            if(userSelection == 2){
 
             }
-            if(userchoice == 3){
+            if(userSelection == 3){
 
             }
         }
