@@ -10,7 +10,7 @@ namespace mis_221_pa_5_rjord1
         private int trainerId;
         static private int ID;
         private string trainerName;
-        private string sessionStatus = "Booked";
+        private string sessionStatus = "";
         static private int count;
 
         static public void SetCount(int count){
@@ -30,14 +30,14 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        public Booking(int sessionId, string customerName, string customerEmail, string trainingDate,int trainerID, string sessionStatus){
+        public Booking(int sessionId, string customerName, string customerEmail, string trainingDate,int trainerID,string Name, string sessionStatus){
             this.sessionId = ID;
             ID++;
             this.customerName = customerName;
             this.customerEmail = customerEmail;
             this.trainingDate = trainingDate;
             this.trainerId = trainerID;
-            
+            this.trainerName = Name;
             this.sessionStatus = sessionStatus;
         }
 

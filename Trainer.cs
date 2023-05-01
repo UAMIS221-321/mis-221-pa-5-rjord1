@@ -31,7 +31,7 @@ namespace mis_221_pa_5_rjord1
 
         }
 
-        public void SetTrainerId(bool rrainerId){
+        public void SetTrainerId(int trainerId){
             this.trainerId = trainerId;
         }
 

@@ -68,14 +68,14 @@ namespace mis_221_pa_5_rjord1
         public void AddTrainer(){
             System.Console.WriteLine("Please enter the trainer name:");
             Trainer newTrainer = new Trainer();
-            newTrainer.SetTrainerId(true);
+            // newTrainer.SetTrainerId(true);
             newTrainer.SetTrainerName(Console.ReadLine());
             System.Console.WriteLine("Please enter the trainer mailing address:");
             newTrainer.SetTrainerMailing(Console.ReadLine());
             System.Console.WriteLine("Please enter the trainer email address:");
             newTrainer.SetTrainerEmail(Console.ReadLine());
             newTrainer.SetActive(true);
-            newTrainer.GetTrainerId();
+            newTrainer.SetTrainerId(TrainerUtility.GetCount());
             trainer[TrainerUtility.GetCount()] = newTrainer;
             TrainerUtility.IncCount();
 

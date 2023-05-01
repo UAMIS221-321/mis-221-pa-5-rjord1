@@ -6,6 +6,8 @@ Listing[] listings = new Listing[100];
 
 Booking[] bookings = new Booking[100];
 
+Report[] reports = new Report[100];
+
 // TrainerUtility utility = new TrainerUtility (trainer);
 // TrainerReport report = new TrainerReport (trainer);
 // ListingUtility Lutility = new ListingUtility (listings);
@@ -14,7 +16,7 @@ Booking[] bookings = new Booking[100];
 
 int userchoice = MainMenuSelection();
 while(userchoice != 5){
-            RouteChoice(userchoice, trainer, listings, bookings);
+            RouteChoice(userchoice, trainer, listings, bookings, reports);
             userchoice = MainMenuSelection();
             
         }
@@ -53,13 +55,14 @@ static void Invalid(){
         System.Console.WriteLine("Wrong entry. Pick again from the menu");
 }
 
-static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings, Booking [] bookings){
+static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings, Booking [] bookings, Report [] reports){
     TrainerUtility utility = new TrainerUtility (trainer);
     TrainerReport report = new TrainerReport (trainer);
     ListingUtility Lutility = new ListingUtility (listings);
     ListingReport Lreport = new ListingReport (listings);
     BookingUtility Butility = new BookingUtility (bookings);
     BookingReport Breport = new BookingReport (listings, bookings);
+    ReportUtility Rutility = new ReportUtility(reports);
     if(userchoice == 1){
         Console.Clear();
         System.Console.WriteLine("Here you have Access to all trainer date.\nSelect from the menu below:");
@@ -159,13 +162,16 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
     if(userchoice == 3){
         System.Console.WriteLine("Here you have Access to all booking date.\nSelect from the menu below:");
         Lutility.GetAllListingsFromFile();
-        System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\nEnter -1 to return to main menu");
+        Butility.GetAllBookingsFromFile(bookings);
+        System.Console.WriteLine("Sessions Booked....");
+        BookingReport.PrintAllBookings(bookings);
+        System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
         int userSelection = int.Parse(Console.ReadLine());
-        while(userSelection == 1 || userSelection == 2 && userSelection != 1){
+        while(userSelection == 1 || userSelection == 2 || userSelection == 3 && userSelection != 1){
             if(userSelection == 1){
                 Console.Clear();
                 BookingReport.PrintAllAvailableSessions(listings);
-                System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\nEnter -1 to return to main menu");
+                System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
                 userSelection = int.Parse(Console.ReadLine());
             }
             if(userSelection == 2){
@@ -175,22 +181,40 @@ static void RouteChoice(int userchoice, Trainer [] trainer, Listing [] listings,
                 Console.Clear();
                 System.Console.WriteLine("Sessions Booked....");
                 BookingReport.PrintAllBookings(bookings);
-                System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\nEnter -1 to return to main menu");
+                System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
                 userSelection = int.Parse(Console.ReadLine());
             }
+            if(userSelection == 3){
+                Console.Clear();
+                BookingReport.PrintAllBookings(bookings);
+                Butility.ChangeBookingStatus();
+                Console.Clear();
+                System.Console.WriteLine("Session Status Changed...");
+                BookingReport.PrintAllBookings(bookings);
+                System.Console.WriteLine("1. Veiw All Avaliable Sessions\n2. Book A Session\n3. Edit Session Status\nEnter -1 to return to main menu");
+                userSelection = int.Parse(Console.ReadLine());
+            }
+
         }
         if(userSelection == -1){
             System.Console.WriteLine("Back to main menu...");
         }
     }
     if(userchoice == 4){
-        System.Console.WriteLine("Which Report would you like tp view? Select from the menu below:");
-        System.Console.WriteLine("1. Individual Customer Report\n 2. Historical Customer Report\n 3. Historical Revenue Report");
+        Lutility.GetAllListingsFromFile();
+        Butility.GetAllBookingsFromFile(bookings);
+        System.Console.WriteLine("Which Report would you like to view? Select from the menu below:");
+        System.Console.WriteLine("1. Individual Customer Report\n2. Historical Customer Report\n3. Historical Revenue Report");
         System.Console.WriteLine("Enter -1 to return to main menu");
         int userSelection = int.Parse(Console.ReadLine());
         while(userSelection == 1 || userSelection == 2 || userSelection == 3 && userSelection != 1){
             if(userchoice == 1){
-
+                Console.Clear();
+                BookingReport.PrintAllBookings(bookings);
+                Rutility.IndividualCustomerReport();
+                System.Console.WriteLine("1. Individual Customer Report\n2. Historical Customer Report\n3. Historical Revenue Report");
+                System.Console.WriteLine("Enter -1 to return to main menu");
+                userSelection = int.Parse(Console.ReadLine());
             }
             if(userchoice == 2){
 

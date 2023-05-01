@@ -37,7 +37,8 @@ namespace mis_221_pa_5_rjord1
             string line = inFile.ReadLine();
             while(line != null){
                 string [] temp = line.Split('#');
-                bookings[BookingUtility.GetCount()] = new Booking(int.Parse(temp[0]),temp[1],temp[2],temp[3],int.Parse(temp[4]),temp[5]);
+                bookings[BookingUtility.GetCount()] = new Booking(int.Parse(temp[0]),temp[1],temp[2],temp[3],int.Parse(temp[4]),temp[5],temp[6]);
+                BookingUtility.IncCount();
                 Booking.IncCount();
                 line = inFile.ReadLine();
             }
@@ -67,6 +68,16 @@ namespace mis_221_pa_5_rjord1
             return -1;
         }
 
+        public int FindBooking(string searchVal){
+            for(int i = 0; i < BookingUtility.GetCount(); i++){
+                if(bookings[i].GetSessionId() == int.Parse(searchVal)){
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
         public void BookASession(Listing [] listings, Trainer [] trainers){
             
             System.Console.WriteLine("Please enter the Listing ID:");
@@ -75,8 +86,7 @@ namespace mis_221_pa_5_rjord1
 
             if(foundIndex != -1){
             Booking newSession = new Booking();
-            System.Console.WriteLine("Enter Session ID: ");
-            newSession.SetSessionId(int.Parse(Console.ReadLine()));
+            newSession.SetSessionId(BookingUtility.GetCount());
             System.Console.WriteLine("Please enter the customer name:");
             newSession.SetCustomerName(Console.ReadLine());
             System.Console.WriteLine("Please enter the customer email:");
@@ -98,6 +108,32 @@ namespace mis_221_pa_5_rjord1
             else{
                 System.Console.WriteLine("Session not found!");
             }
+
+        }
+
+        public void ChangeBookingStatus(){
+            System.Console.WriteLine("Enter the session ID that you would like to edit:");
+            string searchVal = Console.ReadLine();
+            int foundIndex = FindBooking(searchVal);
+
+            if(foundIndex != -1){
+                
+                System.Console.WriteLine("1. This session was completed\n2. This session was canceled");
+                int userSelection = int.Parse(Console.ReadLine());
+                if(userSelection == 1){
+                    bookings[foundIndex].SetSessionStatus("Completed");
+                }
+                if(userSelection == 2){
+                    bookings[foundIndex].SetSessionStatus("Canceled");
+                }
+
+                SaveBooking(bookings);
+
+            }
+            else{
+                System.Console.WriteLine("Session not found!");
+            }
+
         }
 
 

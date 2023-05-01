@@ -56,7 +56,7 @@ namespace mis_221_pa_5_rjord1
         }
 
         public void AddListing(Trainer [] trainers){
-            System.Console.WriteLine("Please enter the Training ID:");
+            System.Console.WriteLine("Please enter the Trainer ID:");
             string tSearchVal = Console.ReadLine();
             int foundIndex = FindTrainer(tSearchVal, trainers);
             if(foundIndex != -1){
@@ -73,6 +73,7 @@ namespace mis_221_pa_5_rjord1
             newListing.SetTrainingId(trainers[foundIndex].GetTrainerId());
             newListing.SessionNotTaken(true);
             newListing.SetActive(true);
+            newListing.SetListingId(ListingUtility.GetCount());
             
 
             listings[ListingUtility.GetCount()] = newListing;
@@ -112,14 +113,9 @@ namespace mis_221_pa_5_rjord1
             int foundIndex = Find(searchVal);
 
             if(foundIndex != -1){
-            System.Console.WriteLine("Please enter the trainer name:");
-            listings[foundIndex].SetTrainerName(Console.ReadLine());
-            System.Console.WriteLine("Please enter the date of the session:");
-            listings[foundIndex].SetSessionDate(Console.ReadLine());
-            System.Console.WriteLine("Please enter the Time of the session:");
-            listings[foundIndex].SetSessionTime(Console.ReadLine());
-            System.Console.WriteLine("Pleae enter the cost of the session:");
-            listings[foundIndex].SetSessionCost(Console.ReadLine());
+            // System.Console.WriteLine("Please enter the trainer name:");
+            // listings[foundIndex].SetTrainerName(Console.ReadLine());
+            
             System.Console.WriteLine("Enter 1 if the session is taken. Eneter 2 if the session is not taken.");
             string userchoice = Console.ReadLine();
             if(userchoice == "1"){
@@ -127,7 +123,14 @@ namespace mis_221_pa_5_rjord1
             }
             if(userchoice == "2"){
                 listings[foundIndex].SessionNotTaken(true);
+                System.Console.WriteLine("Please enter the date of the session:");
+                listings[foundIndex].SetSessionDate(Console.ReadLine());
+                System.Console.WriteLine("Please enter the Time of the session:");
+                listings[foundIndex].SetSessionTime(Console.ReadLine());
+                System.Console.WriteLine("Pleae enter the cost of the session:");
+                listings[foundIndex].SetSessionCost(Console.ReadLine());
             }
+            
 
 
            
